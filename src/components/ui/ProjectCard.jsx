@@ -10,7 +10,7 @@ function ProjectCard({ project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
-      className={`rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col h-full ${
+      className={`rounded-2xl border border-border bg-surface p-6 shadow-[0_0_15px_rgba(57,255,20,0.08)] hover:shadow-[0_0_25px_rgba(57,255,20,0.15)] transition-shadow duration-300 flex flex-col h-full ${
         featured ? "ring-1 ring-accent/30" : ""
       }`}
     >
@@ -21,9 +21,9 @@ function ProjectCard({ project }) {
       )}
 
       <h3 className="text-xl font-bold text-primary">{title}</h3>
-      <p className="text-sm text-gray-400 mb-3">{subtitle}</p>
+      <p className="text-sm text-muted mb-3">{subtitle}</p>
 
-      <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+      <p className="text-muted text-sm leading-relaxed mb-4 flex-grow">
         {description}
       </p>
 
@@ -31,19 +31,19 @@ function ProjectCard({ project }) {
         {techStack.map((tech) => (
           <span
             key={tech}
-            className="text-xs font-medium bg-surface border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full"
+            className="text-xs font-medium bg-surface border border-border text-muted px-2.5 py-1 rounded-full"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="flex gap-4 mt-auto pt-2 border-t border-gray-100">
+      <div className="flex gap-4 mt-auto pt-2 border-t border-border">
         
          <a href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+          className="flex items-center gap-1.5 text-sm font-medium text-muted hover:text-accent transition-colors"
         >
           <Code2 size={16} />
           Code

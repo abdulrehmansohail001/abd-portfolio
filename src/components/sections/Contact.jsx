@@ -41,23 +41,22 @@ function Contact() {
           className="grid sm:grid-cols-3 gap-5"
         >
           {contactLinks.map(({ label, value, href, icon: Icon }) => (
-            
-              <a 
+            <a 
               key={label}
               href={href}
               target={label !== "Email" ? "_blank" : undefined}
               rel={label !== "Email" ? "noopener noreferrer" : undefined}
-              className="group bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-accent hover:shadow-md transition-all"
+              className="group bg-surface border border-border rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-accent hover:shadow-[0_0_25px_rgba(57,255,20,0.15)] transition-all"
             >
-              <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
+              <div className="w-12 h-12 rounded-full bg-bg border border-border flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
                 <Icon
                   size={20}
-                  className="text-gray-500 group-hover:text-white transition-colors"
+                  className="text-muted group-hover:text-bg transition-colors"
                 />
               </div>
               <div>
                 <p className="text-sm font-semibold text-primary">{label}</p>
-                <p className="text-xs text-gray-400">{value}</p>
+                <p className="text-xs text-muted">{value}</p>
               </div>
             </a>
           ))}

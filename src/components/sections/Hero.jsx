@@ -11,9 +11,9 @@ function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+        className="text-accent font-semibold text-sm mb-4"
       >
-        Computer Science Student & Full-Stack Developer
+        ~$ whoami: Computer Science Student & Full-Stack Developer
       </motion.p>
 
       <motion.h1
@@ -22,14 +22,14 @@ function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="text-4xl md:text-6xl font-bold text-primary leading-tight"
       >
-        Abdul Rehman Sohail
+        Abdul Rehman Sohail<span className="cursor-blink">_</span>
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-5 max-w-2xl text-gray-500 text-lg"
+        className="mt-5 max-w-2xl text-muted text-lg"
       >
         I build full-stack web applications with the MERN stack, and enjoy
         going deeper — from REST APIs and OAuth systems down to bare-metal
@@ -44,13 +44,13 @@ function Hero() {
       >
         <a
           href="#projects"
-          className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-accent transition-colors"
+          className="bg-accent text-bg px-6 py-3 rounded-full font-medium shadow-[0_0_15px_rgba(57,255,20,0.08)] hover:shadow-[0_0_25px_rgba(57,255,20,0.15)] transition-all"
         >
           View Projects
         </a>
         <a
           href="#contact"
-          className="border border-gray-300 text-primary px-6 py-3 rounded-full font-medium hover:border-accent hover:text-accent transition-colors"
+          className="border border-accent text-accent px-6 py-3 rounded-full font-medium hover:bg-accent hover:text-bg transition-colors"
         >
           Get in Touch
         </a>
@@ -66,7 +66,7 @@ function Hero() {
           href="https://github.com/abdulrehmansohail001"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-primary transition-colors"
+          className="text-muted hover:text-accent transition-colors"
         >
           <Code2 size={22} />
         </a>
@@ -74,7 +74,7 @@ function Hero() {
           href="https://www.linkedin.com/in/abdul-rehman-sohail-2060123a9"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-primary transition-colors"
+          className="text-muted hover:text-accent transition-colors"
         >
           <Link2 size={22} />
         </a>
@@ -83,7 +83,7 @@ function Hero() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 text-gray-300"
+        className="absolute bottom-10 text-muted"
       >
         <ArrowDown size={24} />
       </motion.div>

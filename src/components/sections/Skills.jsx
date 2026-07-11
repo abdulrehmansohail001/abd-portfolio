@@ -59,7 +59,7 @@ function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
+              className="bg-surface rounded-2xl p-6 border border-border shadow-[0_0_15px_rgba(57,255,20,0.08)] hover:shadow-[0_0_25px_rgba(57,255,20,0.15)]"
             >
               <h3 className="font-semibold text-primary mb-4">
                 {group.category}
@@ -68,7 +68,7 @@ function Skills() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs font-medium bg-surface border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full"
+                      className="text-xs font-medium bg-surface border border-border text-muted px-2.5 py-1 rounded-full"
                   >
                     {skill}
                   </span>

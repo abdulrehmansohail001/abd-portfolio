@@ -14,7 +14,7 @@ function About() {
           transition={{ duration: 0.5 }}
           className="grid md:grid-cols-3 gap-10 items-start"
         >
-          <div className="md:col-span-2 space-y-4 text-gray-600 leading-relaxed">
+          <div className="md:col-span-2 space-y-4 text-muted leading-relaxed">
             <p>
               I'm a Computer Science student at Air University, Multan
               (CGPA 3.81/4.00), with hands-on experience building full-stack
@@ -40,9 +40,9 @@ function About() {
             </p>
           </div>
 
-          <div className="bg-surface rounded-2xl p-6 border border-gray-100">
+          <div className="bg-surface rounded-2xl p-6 border border-border">
             <h3 className="font-semibold text-primary mb-3">Education</h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted">
               BS Computer Science
               <br />
               Air University, Multan Campus
@@ -52,13 +52,13 @@ function About() {
 
             <div className="mt-4 flex items-baseline gap-2">
               <span className="text-3xl font-bold text-accent">3.81</span>
-              <span className="text-sm text-gray-400">/ 4.00 CGPA</span>
+              <span className="text-sm text-muted">/ 4.00 CGPA</span>
             </div>
 
             <h3 className="font-semibold text-primary mt-6 mb-3">
               Certifications
             </h3>
-            <ul className="text-sm text-gray-600 space-y-1">
+            <ul className="text-sm text-muted space-y-1">
               <li>Database Systems – Beginner (Coursera)</li>
               <li>Database Systems – Intermediate (Coursera)</li>
               <li>AI Prompting – Beginner (Coursera)</li>
