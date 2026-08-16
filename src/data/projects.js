@@ -101,16 +101,16 @@ export const projects = [
   },
   {
     id: "shimeji-pipeline",
-    title: "Custom Shimeji Desktop Pet Pipeline",
+    title: "Custom Enhanced Shimeji",
     subtitle: "Creative Tooling Project",
     description:
-      "A self-built pipeline for custom Shimeji-EE desktop pets, combining AI-generated sprite art with XML behavior configuration and PowerShell/batch scripting for automated daily outfit rotation across a 6-outfit linked-list system.",
-    techStack: ["PowerShell", "XML", "Batch Scripting", "AI Image Generation"],
+      "A custom desktop pet built on the Shimeji-EE engine, featuring original sprite sheets, refactored XML behavior configuration, and a portable batch launcher that automatically rotates outfits daily using a day-of-year calculation — no scheduled task required.",
+    techStack: ["Batch Scripting", "XML", "Shimeji-EE"],
     highlights: [
-      "6-outfit rotation system using a linked-list structure",
-      "Automated daily outfit switching with taskbar shortcuts",
+      "Auto-rotates through 3 outfits using (dayOfYear - 1) % TOTAL_OUTFITS",
+      "Portable launcher — no hardcoded paths, works out of the box after cloning",
     ],
-    github: "https://github.com/abdulrehmansohail001",
+    github: "https://github.com/abdulrehmansohail001/custom-enhanced-shimeji",
     live: null,
     featured: false,
   },
