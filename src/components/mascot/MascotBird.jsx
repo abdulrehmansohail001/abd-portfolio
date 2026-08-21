@@ -59,7 +59,8 @@ function MascotBird() {
     return () => clearInterval(interval);
   }, [frameSet]);
 
-  const destination = phase === "flying-out" && target ? target : perch;
+ const destination =
+  (phase === "flying-out" || phase === "pointing") && target ? target : perch;
 
   useEffect(() => {
     if (destination.x !== posRef.current.x) {
