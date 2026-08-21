@@ -4,10 +4,10 @@
 // Frame index = row*COLS + col (0-15, row-major, matches how the
 // sheet reads left-to-right, top-to-bottom).
 
-export const GRID_COLS = 4;
-export const GRID_ROWS = 4;
-export const CELL_WIDTH = 384;
-export const CELL_HEIGHT = 256;
+export const GRID_COLS = 16;
+export const GRID_ROWS = 1;
+export const CELL_WIDTH = 226;
+export const CELL_HEIGHT = 176;
 
 // Each state lists the exact frame indices to play, in order.
 // (Not every state uses a contiguous range on this sheet, so we
