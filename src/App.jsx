@@ -5,18 +5,23 @@ import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
+import { MascotProvider } from "./context/MascotContext";
+import MascotBird from "./components/mascot/MascotBird";
 
 function App() {
   return (
-    <div className="bg-surface">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <MascotProvider>
+      <div className="bg-surface">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Footer />
+        <MascotBird />
+      </div>
+    </MascotProvider>
   );
 }
 

@@ -1,11 +1,28 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Code2, ExternalLink } from "lucide-react";
+import { useMascot } from "../../context/MascotContext";
 
 function ProjectCard({ project }) {
-  const { title, subtitle, description, techStack, github, live, featured } = project;
+  const { title, subtitle, description, techStack, github, live, featured, id } = project;
+  const cardRef = useRef(null);
+  const { flyTo, flyHome } = useMascot();
+
+  const handleMouseEnter = () => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    flyTo(id, rect);
+  };
+
+  const handleMouseLeave = () => {
+    flyHome(id);
+  };
 
   return (
     <motion.div
+      ref={cardRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
