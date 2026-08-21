@@ -1,6 +1,5 @@
 import { createContext, useContext, useRef, useState, useCallback } from "react";
-import { PERCH_POSITION } from "../data/mascotConfig";
-
+import { PERCH_POSITION, RENDER_WIDTH } from "../data/mascotConfig";
 const MascotContext = createContext(null);
 
 // Public state machine values: "perched" | "flying-out" | "pointing" | "flying-home"
@@ -13,8 +12,8 @@ export function MascotProvider({ children }) {
   const flyTo = useCallback((cardId, rect) => {
     const myToken = ++hoverTokenRef.current;
     setActiveCardId(cardId);
-    // Land just outside the top-right corner of the card
-    setTarget({ x: rect.right - 24, y: rect.top - 24 });
+    // Land just outside the top-left corner of the card
+setTarget({ x: rect.left - RENDER_WIDTH + 24, y: rect.top - 24 });
     setPhase("flying-out");
 
     return myToken;

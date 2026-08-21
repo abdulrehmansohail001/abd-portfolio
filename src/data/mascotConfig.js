@@ -26,7 +26,7 @@ export const SHEET_SRC = new URL(
 ).href;
 
 // Corner where the bird perches when idle (viewport-relative, px from edge).
-export const PERCH_POSITION = { right: 32, bottom: 32 };
+export const PERCH_POSITION = { left: 32, bottom: 32 };
 
 // On-screen render size (cells are 384x256 source -> shown much smaller)
 export const RENDER_WIDTH = 96;

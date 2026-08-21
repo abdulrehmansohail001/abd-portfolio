@@ -18,7 +18,7 @@ const SHEET_RENDER_HEIGHT = RENDER_HEIGHT * GRID_ROWS;
 
 function computePerch(perchPosition) {
   return {
-    x: window.innerWidth - perchPosition.right - RENDER_WIDTH,
+    x: perchPosition.left,
     y: window.innerHeight - perchPosition.bottom - RENDER_HEIGHT,
   };
 }
