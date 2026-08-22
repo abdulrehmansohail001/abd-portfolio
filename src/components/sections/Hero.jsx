@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Code2, Link2, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import githubIcon from "../../assets/icons/github.png";
+import linkedinIcon from "../../assets/icons/linkedin.png";
 
 function Hero() {
   return (
@@ -66,17 +68,17 @@ function Hero() {
           href="https://github.com/abdulrehmansohail001"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted hover:text-accent transition-colors"
+          className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-accent transition-colors"
         >
-          <Code2 size={22} />
+          <img src={githubIcon} alt="GitHub" className="w-full h-full object-cover" />
         </a>
         <a
           href="https://www.linkedin.com/in/abdul-rehman-sohail-2060123a9"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted hover:text-accent transition-colors"
+          className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-accent transition-colors"
         >
-          <Link2 size={22} />
+          <img src={linkedinIcon} alt="LinkedIn" className="w-full h-full object-cover" />
         </a>
       </motion.div>
 

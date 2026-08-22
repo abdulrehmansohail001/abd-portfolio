@@ -1,31 +1,33 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Mail, Code2, Link2 } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import { useMascot } from "../../context/MascotContext";
+import gmailIcon from "../../assets/icons/gmail.jpg";
+import githubIcon from "../../assets/icons/github.png";
+import linkedinIcon from "../../assets/icons/linkedin.png";
 
 const contactLinks = [
   {
     label: "Email",
     value: "ab.notjudged@gmail.com",
     href: "mailto:ab.notjudged@gmail.com",
-    icon: Mail,
+    icon: gmailIcon,
   },
   {
     label: "GitHub",
     value: "abdulrehmansohail001",
     href: "https://github.com/abdulrehmansohail001",
-    icon: Code2,
+    icon: githubIcon,
   },
   {
     label: "LinkedIn",
     value: "abdul-rehman-sohail",
     href: "https://www.linkedin.com/in/abdul-rehman-sohail-2060123a9",
-    icon: Link2,
+    icon: linkedinIcon,
   },
 ];
 
-function ContactLink({ label, value, href, icon: Icon }) {
+function ContactLink({ label, value, href, icon }) {
   const linkRef = useRef(null);
   const { flyTo, flyHome } = useMascot();
 
@@ -49,11 +51,8 @@ function ContactLink({ label, value, href, icon: Icon }) {
       rel={label !== "Email" ? "noopener noreferrer" : undefined}
       className="group bg-surface border border-border rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-accent hover:shadow-[0_0_25px_rgba(57,255,20,0.15)] transition-all"
     >
-      <div className="w-12 h-12 rounded-full bg-bg border border-border flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
-        <Icon
-          size={20}
-          className="text-muted group-hover:text-bg transition-colors"
-        />
+      <div className="w-14 h-14 rounded-full border border-border overflow-hidden group-hover:border-accent transition-colors">
+        <img src={icon} alt={`${label} icon`} className="w-full h-full object-cover" />
       </div>
       <div>
         <p className="text-sm font-semibold text-primary">{label}</p>
