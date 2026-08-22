@@ -7,11 +7,13 @@ export function MascotProvider({ children }) {
   const [phase, setPhase] = useState("perched");
   const [target, setTarget] = useState(null); // { x, y } screen coords, top-left of bird landing spot
   const [activeCardId, setActiveCardId] = useState(null);
+  const [pointingMessages, setPointingMessages] = useState(null);
   const hoverTokenRef = useRef(0); // guards against rapid hover in/out races
 
-  const flyTo = useCallback((cardId, rect) => {
+  const flyTo = useCallback((cardId, rect, messages) => {
     const myToken = ++hoverTokenRef.current;
     setActiveCardId(cardId);
+    setPointingMessages(messages ?? null);
     // Land just outside the top-left corner of the card
 setTarget({ x: rect.left - RENDER_WIDTH + 24, y: rect.top - 24 });
     setPhase("flying-out");
@@ -41,6 +43,7 @@ setTarget({ x: rect.left - RENDER_WIDTH + 24, y: rect.top - 24 });
     phase,
     target,
     activeCardId,
+    pointingMessages,
     perchPosition: PERCH_POSITION,
     flyTo,
     arrived,

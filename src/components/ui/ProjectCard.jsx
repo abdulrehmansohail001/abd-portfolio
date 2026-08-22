@@ -13,7 +13,7 @@ function ProjectCard({ project }) {
   const handleMouseEnter = () => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    flyTo(id, rect);
+    flyTo(id, rect, ["View code on GitHub"]);
   };
 
   const handleMouseLeave = () => {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useMascot } from "../../context/MascotContext";
 import SpeechBubble from "./SpeechBubble";
-import { MASCOT_MESSAGES, POINTING_MESSAGES } from "../../data/mascotMessages";
+import { MASCOT_MESSAGES } from "../../data/mascotMessages";
 import {
   FRAMES,
   GRID_COLS,
@@ -26,8 +26,15 @@ function computePerch(perchPosition) {
 }
 
 function MascotBird() {
-  const { phase, target, perchPosition, arrived, landedHome, currentToken } =
-    useMascot();
+  const {
+    phase,
+    target,
+    perchPosition,
+    pointingMessages,
+    arrived,
+    landedHome,
+    currentToken,
+  } = useMascot();
 
   const [perch, setPerch] = useState(() => computePerch(perchPosition));
   const [frameSet, setFrameSet] = useState("idle");
@@ -132,7 +139,7 @@ function MascotBird() {
           Positioned relative to the landing target, not the (now stale) perch. */}
       {phase === "pointing" && target && (
         <SpeechBubble
-          messages={POINTING_MESSAGES}
+          messages={pointingMessages ?? ["Take a look at this"]}
           x={target.x + RENDER_WIDTH * 0.55}
           y={target.y - 96}
         />
