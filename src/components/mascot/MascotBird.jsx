@@ -105,7 +105,7 @@ function MascotBird() {
         initial={false}
         animate={{ x: destination.x, y: destination.y }}
         onAnimationComplete={handleFlightComplete}
-        transition={{ type: "spring", stiffness: 90, damping: 16, mass: 0.9 }}
+        transition={{ type: "spring", stiffness: 30, damping: 9, mass: 1 }}
         style={{
           position: "fixed",
           top: 0,

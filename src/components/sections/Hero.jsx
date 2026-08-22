@@ -1,7 +1,38 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useMascot } from "../../context/MascotContext";
 import githubIcon from "../../assets/icons/github.png";
 import linkedinIcon from "../../assets/icons/linkedin.png";
+
+function HeroSocialLink({ id, href, icon, alt, message }) {
+  const linkRef = useRef(null);
+  const { flyTo, flyHome } = useMascot();
+
+  const handleMouseEnter = () => {
+    if (!linkRef.current) return;
+    const rect = linkRef.current.getBoundingClientRect();
+    flyTo(id, rect, [message]);
+  };
+
+  const handleMouseLeave = () => {
+    flyHome(id);
+  };
+
+  return (
+    <a
+      ref={linkRef}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-accent transition-colors"
+    >
+      <img src={icon} alt={alt} className="w-full h-full object-cover" />
+    </a>
+  );
+}
 
 function Hero() {
   return (
@@ -64,22 +95,20 @@ function Hero() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="mt-8 flex gap-5"
       >
-        <a
+        <HeroSocialLink
+          id="hero-github"
           href="https://github.com/abdulrehmansohail001"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-accent transition-colors"
-        >
-          <img src={githubIcon} alt="GitHub" className="w-full h-full object-cover" />
-        </a>
-        <a
+          icon={githubIcon}
+          alt="GitHub"
+          message="View code on GitHub"
+        />
+        <HeroSocialLink
+          id="hero-linkedin"
           href="https://www.linkedin.com/in/abdul-rehman-sohail-2060123a9"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-accent transition-colors"
-        >
-          <img src={linkedinIcon} alt="LinkedIn" className="w-full h-full object-cover" />
-        </a>
+          icon={linkedinIcon}
+          alt="LinkedIn"
+          message="Let's connect on LinkedIn"
+        />
       </motion.div>
 
       <motion.div
