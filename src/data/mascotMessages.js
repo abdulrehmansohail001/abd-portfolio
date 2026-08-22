@@ -6,3 +6,6 @@ export const MASCOT_MESSAGES = [
   "Hover over a card to see it in action",
   "Let's get started \u2192",
 ];
+
+// Shown while the mascot is landed and pointing at a project card.
+export const POINTING_MESSAGES = ["View code on GitHub"];
