@@ -2,11 +2,13 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Code2, ExternalLink } from "lucide-react";
 import { useMascot } from "../../context/MascotContext";
+import TypewriterText from "./TypewriterText";
 
 function ProjectCard({ project }) {
   const { title, subtitle, description, techStack, github, live, featured, id } = project;
   const cardRef = useRef(null);
-  const { flyTo, flyHome } = useMascot();
+  const { phase, activeCardId, flyTo, flyHome } = useMascot();
+  const isPointing = phase === "pointing" && activeCardId === id;
 
   const handleMouseEnter = () => {
     if (!cardRef.current) return;
@@ -41,7 +43,7 @@ function ProjectCard({ project }) {
       <p className="text-sm text-muted mb-3">{subtitle}</p>
 
       <p className="text-muted text-sm leading-relaxed mb-4 flex-grow">
-        {description}
+        <TypewriterText text={description} active={isPointing} />
       </p>
 
       <div className="flex flex-wrap gap-2 mb-5">
