@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useMascot } from "../../context/MascotContext";
+import SpeechBubble from "./SpeechBubble";
+import { MASCOT_MESSAGES } from "../../data/mascotMessages";
 import {
   FRAMES,
   GRID_COLS,
@@ -90,29 +92,42 @@ function MascotBird() {
   const bgY = -(row * RENDER_HEIGHT);
 
   return (
-    <motion.div
-      aria-hidden="true"
-      initial={false}
-      animate={{ x: destination.x, y: destination.y }}
-      onAnimationComplete={handleFlightComplete}
-      transition={{ type: "spring", stiffness: 90, damping: 16, mass: 0.9 }}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: RENDER_WIDTH,
-        height: RENDER_HEIGHT,
-        zIndex: 60,
-        pointerEvents: "none",
-        backgroundImage: `url(${SHEET_SRC})`,
-        backgroundPosition: `${bgX}px ${bgY}px`,
-        backgroundSize: `${SHEET_RENDER_WIDTH}px ${SHEET_RENDER_HEIGHT}px`,
-        backgroundRepeat: "no-repeat",
-        transform: facingLeft ? "scaleX(-1)" : "scaleX(1)",
-        transformOrigin: "center",
-        filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.35))",
-      }}
-    />
+    <>
+      <motion.div
+        aria-hidden="true"
+        initial={false}
+        animate={{ x: destination.x, y: destination.y }}
+        onAnimationComplete={handleFlightComplete}
+        transition={{ type: "spring", stiffness: 90, damping: 16, mass: 0.9 }}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: RENDER_WIDTH,
+          height: RENDER_HEIGHT,
+          zIndex: 60,
+          pointerEvents: "none",
+          backgroundImage: `url(${SHEET_SRC})`,
+          backgroundPosition: `${bgX}px ${bgY}px`,
+          backgroundSize: `${SHEET_RENDER_WIDTH}px ${SHEET_RENDER_HEIGHT}px`,
+          backgroundRepeat: "no-repeat",
+          transform: facingLeft ? "scaleX(-1)" : "scaleX(1)",
+          transformOrigin: "center",
+          filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.35))",
+        }}
+      />
+
+      {/* Speech bubble only shows while the bird is perched/idle on the side.
+          Rendered as a sibling (not nested in the bird's div) so the bird's
+          scaleX(-1) mirror for facing direction never flips the bubble text. */}
+      {phase === "perched" && (
+        <SpeechBubble
+          messages={MASCOT_MESSAGES}
+          x={perch.x + RENDER_WIDTH * 0.55}
+          y={perch.y - 96}
+        />
+      )}
+    </>
   );
 }
 
